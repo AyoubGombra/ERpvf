@@ -1,0 +1,80 @@
+{% extends 'baseLogin.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <section id="team" class="team">
+        <div class="container">
+            <h1 style="color: green; text-align: center;">Reset your password</h1>
+            <div style="text-align: center; margin-top: 20px;">
+                <small style="color: green;">
+                    Enter your new password please !!!
+                </small>
+            </div>
+            <div class="form-container" style="border: 1px solid green; padding: 10px; margin-top: 20px;">
+                <form method="post" action="{{ path('app_reset_password') }}">
+                    {{ form_widget(resetForm._token) }}
+                    {{ form_row(resetForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Enter your new password'}}) }}
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: green;">Reset Password</button>
+                </form>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="{{asset('Back/assets/images/images.png')}}" alt="Image description">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .team {
+            padding: 80px 0;
+        }
+
+        .team h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: green;
+            text-transform: uppercase;
+        }
+
+        .team small {
+            font-size: 18px;
+            color: green;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid green;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #cc1616;
+            box-shadow: 0 0 0 3px rgba(204, 22, 22, 0.1);
+        }
+
+        .btn {
+            background-color: green;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #005500;
+        }
+    </style>
+{% endblock %}

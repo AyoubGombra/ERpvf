@@ -1,0 +1,133 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block content %}
+<style>
+.product-index {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.product-index h1 {
+    color: #333;
+}
+
+.product-index .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.product-index .table th, .product-index .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-index .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.product-index .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-index .table tr:hover {
+    background-color: #ddd;
+}
+
+.product-index .table td a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.product-index .table td a:hover {
+    background-color: #0056b3;
+}
+
+.product-index a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.product-index a:hover {
+    background-color: #ddd;
+}
+
+</style>
+
+<div >
+    <label for="search-input">Rechercher un produit :</label>
+    <input type="text" id="search" placeholder="Recherche par ...">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#search').keyup(function() {
+            var query = $(this).val();
+            $.ajax({
+                url: "{{ path('search_product') }}",
+                type: "POST",
+                data: {query: query},
+                success: function(data) {
+                    $('#results').html(data);
+                    $('#results').css('width', '100%');
+                    $('#results').css('position', 'static');
+                }
+            });
+        });
+    });
+</script>
+
+    <button class="btn btn-warning"><a href="{{ path('tricroissant') }}">Tri ASC</a></button>
+    <button class="btn btn-info"><a href="{{ path('tridecroissant') }}">Tri DESC</a></button>
+
+
+<div id="results" class="product-index">
+    <h1>Product index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+               
+                <td>{{ product.nom }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.prix }}</td>
+                <td>
+                    <a href="{{ path('app_product_showFront', {'id': product.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

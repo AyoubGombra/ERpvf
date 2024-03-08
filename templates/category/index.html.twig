@@ -1,0 +1,106 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block content %}
+<style>
+.category-index {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.category-index h1 {
+    color: #333;
+}
+
+.category-index .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.category-index .table th, .category-index .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.category-index .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.category-index .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.category-index .table tr:hover {
+    background-color: #ddd;
+}
+
+.category-index .table td a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.category-index .table td a:hover {
+    background-color: #0056b3;
+}
+
+.category-index a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.category-index a:hover {
+    background-color: #ddd;
+}
+
+</style>
+
+<div class="category-index">
+    <h1>Category index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Quantite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.nom }}</td>
+                <td>{{ category.description }}</td>
+                <td>{{ category.quantite }}</td>
+                <td>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_category_new') }}">Create new</a>
+    <button class="btn"><a href="{{ path('app_category_stat') }}">Génerer statistiques</a></button>
+</div>
+{% endblock %}

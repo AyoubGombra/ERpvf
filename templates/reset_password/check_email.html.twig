@@ -1,0 +1,48 @@
+{% extends 'baseLogin.html.twig' %}
+
+{% block title %}Password Reset Email Sent{% endblock %}
+
+{% block body %}
+    <section class="reset-email-sent">
+        <div class="container">
+            <div class="reset-info">
+                <p class="reset-text">
+                    If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
+                    This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                </p>
+                <p class="reset-text">If you don't receive an email, please check your spam folder or <a href="{{ path('app_forgot_password_request') }}" class="reset-link">try again</a>.</p>
+            </div>
+        </div>
+    </section>
+    <style>
+        .reset-email-sent {
+            background-color: #ecf6ef;
+            padding: 60px 0;
+            border-radius: 20px;
+        }
+
+        .reset-info {
+            background-color: #5cb85c;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .reset-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .reset-link {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .reset-link:hover {
+            color: #00ff7f;
+        }
+    </style>
+{% endblock %}

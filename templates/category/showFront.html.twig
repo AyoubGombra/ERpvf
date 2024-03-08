@@ -1,0 +1,80 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block content %}
+<style>
+.category-detail {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.category-detail h1 {
+    color: #333;
+}
+
+.category-detail .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.category-detail .table th, .category-detail .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.category-detail .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.category-detail .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.category-detail a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.category-detail a:hover {
+    background-color: #ddd;
+}
+
+
+</style>
+<div class="category-detail">
+    <h1>Category</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ category.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ category.quantite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_front_category_index') }}">back to list</a>
+
+</div>
+{% endblock %}

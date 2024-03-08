@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Register - SB Admin</title>
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <script src="{{asset('https://use.fontawesome.com/releases/v6.3.0/js/all.js')}}" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">Create Account</h3>
+                                </div>
+                                <div class="card-body">
+                                    {{ form_start(form) }}
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'id': 'inputname', 'placeholder': 'Enter your name'}}) }}
+                                        {{ form_label(form.name) }}
+                                        {{ form_errors(form.name) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'id': 'inputprenom', 'type': 'text','placeholder': 'Enter your last name'}}) }}
+                                        {{ form_label(form.prenom) }}
+                                        {{ form_errors(form.prenom) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.roleUser,{'attr': {'class': 'form-control', 'id': 'inputrole', 'type': 'text','placeholder': 'Enter your role'}}) }}
+                                        {{ form_label(form.roleUser) }}
+                                        {{ form_errors(form.roleUser) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.departement, {'attr': {'class': 'form-control', 'id': 'inputID_Depart'}}) }}
+                                        {{ form_label(form.departement) }}
+                                        {{ form_errors(form.departement) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.salaire, {'attr': {'class': 'form-control', 'id': 'inputsalaire', 'type': 'text', 'placeholder': 'Enter your salary'}}) }}
+                                        {{ form_label(form.salaire) }}
+                                        {{ form_errors(form.salaire) }}
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'id': 'inputEmail', 'type': 'email','placeholder': 'name@example.com'}}) }}
+                                        {{ form_label(form.email) }}
+                                        {{ form_errors(form.email) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3" type="password" >
+                                        {{ form_widget(form.password, {'attr': {'class': 'form-control', 'id': 'inputPassword', 'type': 'password','placeholder': 'Enter your password'}}) }}
+                                        {{ form_label(form.password) }}
+                                        {{ form_errors(form.password) }}
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        {{ form_row(form.captcha) }}
+                                        {{ form_errors(form.captcha) }}
+                                    </div>
+
+                                    <div class="mt-4 mb-0">
+                                        <div class="form-group">
+                                            {{ form_label(form.save) }}
+                                            {{ form_widget(form.save) }}
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                    </div>
+        </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+<script src="{{asset('js/scripts.js')}}"></script>
+</body>
+</html>

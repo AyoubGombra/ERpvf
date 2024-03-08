@@ -1,0 +1,105 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block content %}
+<style>
+.product-index {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.product-index h1 {
+    color: #333;
+}
+
+.product-index .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.product-index .table th, .product-index .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-index .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.product-index .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-index .table tr:hover {
+    background-color: #ddd;
+}
+
+.product-index .table td a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.product-index .table td a:hover {
+    background-color: #0056b3;
+}
+
+.product-index a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.product-index a:hover {
+    background-color: #ddd;
+}
+
+</style>
+<div class="product-index">
+    <h1>Product index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.nom }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.prix }}</td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_new') }}">Create new</a>
+</div>
+{% endblock %}

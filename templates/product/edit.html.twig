@@ -1,0 +1,75 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block content %}
+<style>
+.product-edit {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.product-edit h1 {
+    color: #333;
+}
+
+.product-edit .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.product-edit .table th, .product-edit .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-edit .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.product-edit a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.product-edit a:hover {
+    background-color: #ddd;
+}
+
+.product-edit .btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.product-edit .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+</style>
+<div class="product-edit">
+    <h1>Edit Product</h1>
+
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_product_index') }}">back to list</a>
+
+    {{ include('product/_delete_form.html.twig') }}
+</div>
+{% endblock %}

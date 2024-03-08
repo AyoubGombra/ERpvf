@@ -1,0 +1,59 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block content %}
+<style>
+.category-edit {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.category-edit h1 {
+    color: #333;
+}
+
+.category-edit a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.category-edit a:hover {
+    background-color: #ddd;
+}
+
+.category-edit .btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.category-edit .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+</style>
+<div class="category-edit">
+    <h1>Edit Category</h1>
+
+    {{ include('category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_category_index') }}">back to list</a>
+
+    {{ include('category/_delete_form.html.twig') }}
+</div>
+{% endblock %}

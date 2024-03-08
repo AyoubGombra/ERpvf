@@ -1,0 +1,72 @@
+{% extends 'admin/home/home.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block content %}
+<style>
+.product-new {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.product-new h1 {
+    color: #333;
+}
+
+.product-new .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.product-new .table th, .product-new .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-new .table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.product-new a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.product-new a:hover {
+    background-color: #ddd;
+}
+
+.product-new .btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.product-new .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+</style>
+<div class="product-new">
+    <h1>Create new Product</h1>
+
+    {{ include('product/_form.html.twig') }}
+
+    <a href="{{ path('app_product_index') }}">back to list</a>
+</div>
+{% endblock %}
